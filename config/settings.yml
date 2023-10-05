@@ -1,0 +1,7 @@
+accuweather:
+  api:
+    base_url: "https://dataservice.accuweather.com"
+    current_conditions_endpoint: "/currentconditions/v1/:location_key"
+    historical_conditions_endpoint: "/currentconditions/v1/:location_key/historical/24"
+  location:
+    default_location_key: "294021"
