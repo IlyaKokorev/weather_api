@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AccuweatherApi
-  class BaseAccuweatherService
+  class BaseAccuweatherService < BaseService
     BASE_URL = Settings.accuweather.api.base_url
     DEFAULT_LOCATION_KEY = Settings.accuweather.location.default_location_key
 
@@ -15,10 +15,11 @@ module AccuweatherApi
     protected
 
     def fetch_and_parse(uri, parser)
+      # TODO: Вывести запрос в accuweather в отдельный гем с обработкой ошибок
       response = fetch_data(uri)
       return parser.call(response.body) if response.is_a?(Net::HTTPSuccess)
 
-      raise AccuweatherServiceError, "Failed fetch data. Response code: #{response.code}"
+      raise AccuweatherServiceError, "Failed fetch data. Response code: #{response.code}. Response: #{response.body}"
     end
 
     def uri_for(endpoint)

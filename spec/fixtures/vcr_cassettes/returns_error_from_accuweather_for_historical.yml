@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://dataservice.accuweather.com/currentconditions/v1/invalid_key/historical/24?apikey=<ACCUWEATHER_API_KEY>&details=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - dataservice.accuweather.com
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Sat, 07 Oct 2023 17:53:08 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Request-Context:
+      - appId=cid-v1:0158d69b-75d9-4a19-9e5f-a14693f847e4
+      Ratelimit-Limit:
+      - '1'
+      Ratelimit-Remaining:
+      - '249'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization
+      Access-Control-Max-Age:
+      - '1728000'
+      Expires:
+      - Sat, 07 Oct 2023 17:53:08 GMT
+      Cache-Control:
+      - max-age=0, no-cache
+      Pragma:
+      - no-cache
+      Akamai-Grn:
+      - 0.129eca17.1696701188.8a2fea45
+    body:
+      encoding: ASCII-8BIT
+      string: '{"Code":"400","Message":"Invalid location key: invalid_key","Reference":"/currentconditions/v1/invalid_key/historical/24"}'
+  recorded_at: Sat, 07 Oct 2023 17:53:09 GMT
+recorded_with: VCR 6.2.0

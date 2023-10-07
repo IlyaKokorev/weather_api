@@ -15,6 +15,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'grape'
 gem 'grape-entity'
+gem 'groupdate'
 gem 'config'
 gem 'delayed_job_active_record'
 gem 'rufus-scheduler' # Исключение в рамках ТЗ. Предпочитаю Sidekiq с Redis

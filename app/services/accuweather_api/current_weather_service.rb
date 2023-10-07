@@ -4,8 +4,8 @@ module AccuweatherApi
   class CurrentWeatherService < BaseAccuweatherService
     CURRENT_CONDITIONS_ENDPOINT = Settings.accuweather.api.current_conditions_endpoint
 
-    def self.call(location_key: nil)
-      new(location_key: location_key).send(:fetch_current_weather)
+    def call
+      fetch_current_weather
     end
 
     private

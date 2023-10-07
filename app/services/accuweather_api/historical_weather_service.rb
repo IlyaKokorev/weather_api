@@ -4,8 +4,8 @@ module AccuweatherApi
   class HistoricalWeatherService < BaseAccuweatherService
     HISTORICAL_CONDITIONS_ENDPOINT = Settings.accuweather.api.historical_conditions_endpoint
 
-    def self.call(location_key: nil)
-      new(location_key: location_key).send(:fetch_historical_weather)
+    def call(location_key: nil)
+      fetch_historical_weather
     end
 
     private

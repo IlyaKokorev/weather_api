@@ -10,6 +10,19 @@ module V1
         historical_weather = AccuweatherApi::HistoricalWeatherService.call
         present historical_weather, with: V1::Entities::WeatherEntity
       end
+
+      namespace :historical do
+        %i[max min avg].each do |method|
+          get method.to_s do
+            begin
+              result = HistoricalWeatherCalculationService.call(method: method)
+              { temperature: result.round(1) }
+            rescue
+              error!('Data is unavailable', 404)
+            end
+          end
+        end
+      end
     end
   end
 end
