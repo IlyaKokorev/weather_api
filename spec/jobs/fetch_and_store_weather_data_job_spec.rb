@@ -1,19 +1,19 @@
 require 'rails_helper'
 require 'vcr'
 
-RSpec.describe AccuweatherJob, type: :job do
+RSpec.describe FetchAndStoreWeatherDataJob, type: :job do
   include ActiveJob::TestHelper
 
   describe '#perform_later' do
     it 'adds jobs to the queue' do
-      assert_enqueued_with(job: AccuweatherJob) do
-        AccuweatherJob.perform_later
+      assert_enqueued_with(job: FetchAndStoreWeatherDataJob) do
+        FetchAndStoreWeatherDataJob.perform_later
       end
     end
 
     it 'creates weather records from historical data' do
       VCR.use_cassette('returns_array_of_weather_data_for_24_hours') do
-        perform_enqueued_jobs { AccuweatherJob.perform_later }
+        perform_enqueued_jobs { FetchAndStoreWeatherDataJob.perform_later }
       end
 
       expect(Weather.count).to eq(24)
