@@ -4,10 +4,6 @@ services:
     image: postgres:12
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: weather_api_development
-      POSTGRES_USER: weather_api
-      POSTGRES_PASSWORD: password
 
   web:
     build: .
@@ -18,3 +14,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      DB_USERNAME: weather_api
+      DB_PASSWORD: password
+      DB_HOST: db

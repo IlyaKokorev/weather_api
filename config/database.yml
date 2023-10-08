@@ -6,9 +6,9 @@ default: &default
 development:
   <<: *default
   database: weather_api_development
-  username: weather_api
-  password: password
-  host: db
+  username: <%= ENV['DB_USERNAME'] || nil %>
+  password: <%= ENV['DB_PASSWORD'] || nil %>
+  host: <%= ENV['DB_HOST'] || nil %>
 
 test:
   <<: *default
