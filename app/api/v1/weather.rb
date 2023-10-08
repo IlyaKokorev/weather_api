@@ -28,7 +28,7 @@ module V1
         temperature = WeatherByTimeService.call(timestamp: params[:timestamp])
 
         if temperature
-          { temperature: }
+          { temperature: temperature }
         else
           error!('No weather data for timestamp', 404)
         end
