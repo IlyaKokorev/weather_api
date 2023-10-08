@@ -9,7 +9,7 @@ class WeatherByTimeService < BaseService
     closest_weather = find_weather(desired_time)
     return closest_weather.temperature if closest_weather
 
-    raise WeatherByTimeServiceError, "No weather data for timestamp"
+    raise WeatherByTimeServiceError, 'No weather data for timestamp'
   end
 
   private

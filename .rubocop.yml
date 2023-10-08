@@ -1,0 +1,30 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/migrate/*'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'app/api/**/*'
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Layout/LineLength:
+  Max: 200
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false

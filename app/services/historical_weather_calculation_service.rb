@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class HistoricalWeatherCalculationService < BaseService
-  CALCULATION_METHODS = %i[max min avg]
+  CALCULATION_METHODS = %i[max min avg].freeze
   PERSISTENT_DATA_HOUR_COUNT = 20
 
   def initialize(method:)
@@ -15,7 +15,7 @@ class HistoricalWeatherCalculationService < BaseService
   def calculate(method)
     # На данном этапе бросать ексепшен избыточно, но осталяю для
     # возможности использовать сервис отдельно от контроллера
-    raise ArgumentError, "Invalid calculation method" unless CALCULATION_METHODS.include?(method)
+    raise ArgumentError, 'Invalid calculation method' unless CALCULATION_METHODS.include?(method)
 
     ensure_data_availability
     public_send(method)

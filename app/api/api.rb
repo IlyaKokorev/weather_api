@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'grape-swagger'
 
 class Api < Grape::API

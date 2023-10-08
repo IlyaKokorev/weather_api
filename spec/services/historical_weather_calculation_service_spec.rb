@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe HistoricalWeatherCalculationService, type: :service do
@@ -5,7 +7,7 @@ RSpec.describe HistoricalWeatherCalculationService, type: :service do
     context 'with invalid method' do
       it 'raise error' do
         expect { described_class.call(method: :invalid_method) }
-          .to raise_error(ArgumentError, "Invalid calculation method")
+          .to raise_error(ArgumentError, 'Invalid calculation method')
       end
     end
   end

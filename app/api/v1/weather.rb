@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module V1
   class Weather < Grape::API
     resource :weather do
@@ -14,12 +16,10 @@ module V1
       namespace :historical do
         %i[max min avg].each do |method|
           get method.to_s do
-            begin
-              result = HistoricalWeatherCalculationService.call(method: method)
-              { temperature: result.round(1) }
-            rescue
-              error!('Data is unavailable', 404)
-            end
+            result = HistoricalWeatherCalculationService.call(method:)
+            { temperature: result.round(1) }
+          rescue StandardError
+            error!('Data is unavailable', 404)
           end
         end
       end
@@ -28,7 +28,7 @@ module V1
         temperature = WeatherByTimeService.call(timestamp: params[:timestamp])
 
         if temperature
-          { temperature: temperature }
+          { temperature: }
         else
           error!('No weather data for timestamp', 404)
         end
