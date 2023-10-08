@@ -19,7 +19,8 @@ gem 'groupdate'
 gem 'config'
 gem 'delayed_job_active_record'
 gem 'rufus-scheduler' # Исключение в рамках ТЗ. Предпочитаю Sidekiq с Redis
-gem 'trailblazer-rails'
+gem 'grape-swagger-rails'
+gem 'grape-swagger'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
