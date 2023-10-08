@@ -1,24 +1,44 @@
-# README
+# Weather API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Проект предоставляет API для доступа к метеорологическим данным 
 
-Things you may want to cover:
+### Основные возможности:
+* Получение текущей погоды.
+* Получение исторических данных о погоде за последние 24 часа
+* Получение максимальной температуры за последние 24 час
+* Получение минимальной температуры за последние 24 час
+* Получение средней температуры за последние 24 час
+* Обновление данных о погоде в фоновом режиме
 
-* Ruby version
+### Требования
+* Ruby 3.2.2
+* PSQL
+* Docker (опционально)
 
-* System dependencies
+### Установка и настройка
 
-* Configuration
+Клонировать репозиторий:
+    
+    git clone git@github.com:IlyaKokorev/weather_api.git
 
-* Database creation
+Установить зависимости:
 
-* Database initialization
+    bundle install
 
-* How to run the test suite
+Настроить базу данных:
 
-* Services (job queues, cache servers, search engines, etc.)
+    rails db:create db:migrate
 
-* Deployment instructions
+Запуск сервера:
 
-* ...
+    rails s
+
+### Запуск с помощью Docker
+
+    docker-compose up --build
+
+### Тестирование
+
+Для запуска тестов выполните:
+
+    bundle exec rspec
