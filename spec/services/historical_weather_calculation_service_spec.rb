@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe HistoricalWeatherCalculationService do
+RSpec.describe HistoricalWeatherCalculationService, type: :service do
   describe '#calculate' do
     context 'with invalid method' do
       it 'raise error' do

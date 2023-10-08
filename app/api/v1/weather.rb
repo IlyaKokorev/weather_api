@@ -23,6 +23,20 @@ module V1
           end
         end
       end
+
+      get 'by_time' do
+        temperature = WeatherByTimeService.call(timestamp: params[:timestamp])
+
+        if temperature
+          { temperature: temperature }
+        else
+          error!('No weather data for timestamp', 404)
+        end
+      end
+    end
+
+    get 'health' do
+      { status: 'OK' }
     end
   end
 end
